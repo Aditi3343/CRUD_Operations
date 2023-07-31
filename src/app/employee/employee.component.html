@@ -1,0 +1,61 @@
+<div *ngIf=" appState=='default' ">
+    <h3>Enter Employee info</h3>
+    <form (ngSubmit)="addEmps()">
+        <label>
+            Name:
+            <input type="text" [(ngModel)]="text" name="text" />
+        </label>
+        <label>
+            Gender:
+            <select [(ngModel)]="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="others">Others</option>
+            </select>
+        </label>
+        <br />
+        <label>
+            Date of Joining:
+            <input type="date" [(ngModel)]="doj" name="doj" />
+        </label>
+        <button type="submit">Add</button>
+<div *ngIf=" appState==='default' ">
+    <h3>Edit the List</h3>
+    <form (submit)="updateList()">
+        <label>
+            Name:
+            <input type="text" [(ngModel)]="text" name="text" />
+        </label>
+        <label>
+            Gender:
+            <select [(ngModel)]="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="others">Others</option>
+            </select>
+        </label>
+        <br />
+        <label>
+            Date of Joining:
+            <input type="date" [(ngModel)]="doj" name="doj" />
+        </label>
+    </form>
+</div>
+<h3>Emplyoee List</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Date of Joining</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let emp of emps">
+            <td> {{ emp.name }}</td>
+            <td> {{ emp.gender }}</td>
+            <td> {{ emp.doj }}</td>
+        </tr>
+    </tbody>
+</table>
